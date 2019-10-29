@@ -45,7 +45,7 @@ export class HomePage {
 						this.todoService.addTodo(todoText);
 						this.isNotEmptyTodo = (this.allTodos.length > 1) ? true : false;
 
-						addTodoAlert.onDidDissmiss(this.showTostMessage('Todo added to list.'));
+						addTodoAlert.onDidDismiss(this.showTostMessage('Todo added to list.'));
 					}
 				}
 			]
