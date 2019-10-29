@@ -15,8 +15,8 @@ export class HomePage {
 	public isNotEmptyTodo: boolean;
 
 	constructor(
-		public alertController: AlertController, 
-		public toastController: ToastController, 
+		private alertController: AlertController, 
+		private toastController: ToastController, 
 		private todoService: TodoService
 	) {
 		this.allTodos = this.todoService.getTodos();
@@ -45,7 +45,9 @@ export class HomePage {
 						this.todoService.addTodo(todoText);
 						this.isNotEmptyTodo = (this.allTodos.length > 1) ? true : false;
 
-						addTodoAlert.onDidDismiss(this.showTostMessage('Todo added to list.'));
+						addTodoAlert.onDidDismiss().then((resolve) => {
+							this.showTostMessage('Todo added to list.')
+						});
 					}
 				}
 			]
