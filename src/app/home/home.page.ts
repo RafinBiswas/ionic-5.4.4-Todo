@@ -4,13 +4,13 @@ import { AlertController, ToastController } from '@ionic/angular';
 import { TodoService } from '../services/todo.service';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: 'home.page.html',
-  styleUrls: ['home.page.scss'],
+	selector: 'app-home',
+	templateUrl: 'home.page.html',
+	styleUrls: ['home.page.scss'],
 })
 
 export class HomePage {
-	public allTodos: string[];
+	public allTodos: any[];
 	public isDisabledReordering: boolean;
 	public isNotEmptyTodo: boolean;
 
@@ -19,9 +19,14 @@ export class HomePage {
 		private toastController: ToastController, 
 		private todoService: TodoService
 	) {
-		this.allTodos = this.todoService.getTodos();
+		this.allTodos = [];
+		this.isNotEmptyTodo = false;
 		this.isDisabledReordering = true;
-		this.isNotEmptyTodo = (this.allTodos.length > 1) ? true : false;
+		
+		this.todoService.getTodos().then((resolve) => {
+			this.allTodos = resolve;
+			this.isNotEmptyTodo = (this.allTodos.length > 1) ? true : false;
+		});
 	}
 
 	private async openTodoAlert() {
@@ -73,7 +78,11 @@ export class HomePage {
 	}
 
 	private doReorder(event: any) {
-		event.detail.complete(this.todoService.getTodos());
+		// console.log('Dragged from index', event.detail.from, 'to', event.detail.to);
+
+		this.todoService.getTodos().then((resolve) => {
+			event.detail.complete(resolve);
+		});
 	}
 
 	private deleteTodo(index: number) {
@@ -82,7 +91,7 @@ export class HomePage {
 	}
 
 	private async editTodo(index: number) {
-		let currentValue = (index > -1) ? this.allTodos[index] : '';
+		let currentValue = (index > -1) ? this.allTodos[index].title : '';
 
 		const editTodoAlert = await this.alertController.create({
 			message: 'Enter your todo',

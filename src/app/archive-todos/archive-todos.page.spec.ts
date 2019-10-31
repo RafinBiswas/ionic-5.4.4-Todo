@@ -4,24 +4,24 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { ArchiveTodosPage } from './archive-todos.page';
 
 describe('ArchiveTodosPage', () => {
-  let component: ArchiveTodosPage;
-  let fixture: ComponentFixture<ArchiveTodosPage>;
+	let component: ArchiveTodosPage;
+	let fixture: ComponentFixture<ArchiveTodosPage>;
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [ ArchiveTodosPage ],
-      schemas: [CUSTOM_ELEMENTS_SCHEMA],
-    })
-    .compileComponents();
-  }));
+	beforeEach(async(() => {
+		TestBed.configureTestingModule({
+			declarations: [ ArchiveTodosPage ],
+			schemas: [CUSTOM_ELEMENTS_SCHEMA],
+		})
+		.compileComponents();
+	}));
 
-  beforeEach(() => {
-    fixture = TestBed.createComponent(ArchiveTodosPage);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
+	beforeEach(() => {
+		fixture = TestBed.createComponent(ArchiveTodosPage);
+		component = fixture.componentInstance;
+		fixture.detectChanges();
+	});
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
+	it('should create', () => {
+		expect(component).toBeTruthy();
+	});
 });

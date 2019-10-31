@@ -8,14 +8,16 @@ import { TodoService } from '../services/todo.service';
 	styleUrls: ['./archive-todos.page.scss'],
 })
 export class ArchiveTodosPage implements OnInit {
-	public allTodos: string[];
+	public allTodos: any[];
 
 	constructor(private todoService: TodoService) {
 		this.allTodos = [];
 	}
 
 	ngOnInit() {
-		this.allTodos = this.todoService.getTodos();
+		this.todoService.getTodos().then((resolve) => {
+			this.allTodos = resolve;
+		});
 	}
 
 }

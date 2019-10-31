@@ -7,17 +7,18 @@ import { RouterModule } from '@angular/router';
 import { HomePage } from './home.page';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    FormsModule,
-    IonicModule,
-    RouterModule.forChild([
-      {
-        path: '',
-        component: HomePage
-      }
-    ])
-  ],
-  declarations: [HomePage]
+	imports: [
+		// tslint:disable-next-line: indent
+		CommonModule,
+		FormsModule,
+		IonicModule,
+		RouterModule.forChild([
+			{
+				path: '',
+				component: HomePage
+			}
+		])
+	],
+	declarations: [HomePage]
 })
 export class HomePageModule {}

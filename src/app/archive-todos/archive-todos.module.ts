@@ -8,19 +8,19 @@ import { IonicModule } from '@ionic/angular';
 import { ArchiveTodosPage } from './archive-todos.page';
 
 const routes: Routes = [
-  {
-    path: '',
-    component: ArchiveTodosPage
-  }
+	{
+		path: '',
+		component: ArchiveTodosPage
+	}
 ];
 
 @NgModule({
-  imports: [
-    CommonModule,
-    FormsModule,
-    IonicModule,
-    RouterModule.forChild(routes)
-  ],
-  declarations: [ArchiveTodosPage]
+	imports: [
+		CommonModule,
+		FormsModule,
+		IonicModule,
+		RouterModule.forChild(routes)
+	],
+	declarations: [ArchiveTodosPage]
 })
 export class ArchiveTodosPageModule {}
